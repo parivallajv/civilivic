@@ -39,7 +39,7 @@ const services: Service[] = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="bg-white py-20 px-6">
+    <section id="why-civilivic" className="bg-white py-25 px-6">
       <div className="max-w-7xl mx-auto text-center">
         <motion.h2
           className="text-4xl font-bold mb-4"

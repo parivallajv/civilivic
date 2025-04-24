@@ -39,7 +39,7 @@ const Slider: React.FC<SliderProps> = ({ slides, interval = 3000 }) => {
   console.log(slides, "slides");
 
   return (
-    <div className="relative w-full overflow-hidden rounded-lg shadow-md">
+    <div id="" className="relative w-full overflow-hidden rounded-lg shadow-md">
       <div
         className="relative h-[400px] md:h-[400px] transition-transform duration-500 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}

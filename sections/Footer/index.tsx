@@ -51,9 +51,10 @@ const Footer = () => {
         <FooterCategory
           title="Site Map"
           links={[
-            { href: "/how-it-works", label: "How It Works" },
-            { href: "/our-projects", label: "Our Projects" },
-            { href: "/about-us", label: "About Us" },
+            { href: "#our-services", label: "Our Services" },
+            { href: "#why-civilivic", label: "Why civilivic ?" },
+            { href: "#how-it-works", label: "How It Works" },
+            { href: "#pricing", label: "Pricing" },
           ]}
         />
         <FooterCategory
@@ -76,9 +77,7 @@ const Footer = () => {
           <p className="text-gray-400 mb-2">+91 7506 205 205</p>
           <p className="text-gray-400 mb-2">support@bricknbolt.com</p>
           <div className="flex space-x-4">
-            {/* Add social media icons here */}
             <Link href="#" className="text-gray-400 hover:text-gray-200">
-              {/* Example: <svg>...</svg> */}
               Facebook
             </Link>
             <Link href="#" className="text-gray-400 hover:text-gray-200">

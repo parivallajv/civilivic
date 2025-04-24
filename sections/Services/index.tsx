@@ -4,7 +4,7 @@ import Business from "./images/business.jpg";
 
 export default function OurServices() {
   return (
-    <section className="bg-[#fff6f3] px-6 py-16">
+    <section id="our-services" className="bg-[#fff6f3] px-6 py-25">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold mb-4">Our Services</h2>
         <p className="text-lg text-gray-700 mb-10">

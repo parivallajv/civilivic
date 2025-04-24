@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 import {
   Select,
   SelectContent,
@@ -27,7 +28,7 @@ const TalkToExpertPopup: React.FC<TalkToExpertFormProps> = ({
 }) => {
   const [open, setOpen] = useState(true);
   const [name, setName] = useState("");
-  const [mobileCode, setMobileCode] = useState("+91"); // Default to India's code
+  const [mobileCode, setMobileCode] = useState("+91");
   const [mobileNumber, setMobileNumber] = useState("");
   const [email, setEmail] = useState("");
   const [location, setLocation] = useState("");
@@ -39,38 +40,39 @@ const TalkToExpertPopup: React.FC<TalkToExpertFormProps> = ({
     setIsSubmitting(true);
     setSubmissionError(null);
 
-    // Simulate form submission (replace with your actual API call)
     try {
-      console.log("Submitting form data:", {
-        name,
-        mobileCode,
-        mobileNumber,
-        email,
-        location,
+      const res = await fetch("/api/send-enquiry", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          mobileCode,
+          mobileNumber,
+          email,
+          location,
+        }),
       });
-      await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulate network delay
-
-      setIsSubmitting(false);
-      setOpen(false); // Close the popup on successful submission
-      if (onSuccess) {
-        onSuccess();
-      } else {
-        alert(
-          "Thank you for your interest! We will get in touch with you soon."
-        );
-        // Optionally reset the form here
-        setName("");
-        setMobileNumber("");
-        setEmail("");
-        setLocation("");
+      const result = await res.json();
+      if (!res.ok) {
+        throw new Error(result.message || "Failed to send email");
       }
+      setIsSubmitting(false);
+      setOpen(false);
+      onSuccess?.();
+      toast.success("Enquiry submitted!", {
+        description: "We'll get in touch with you shortly.",
+        duration: 5000,
+      });
+      setName("");
+      setMobileNumber("");
+      setEmail("");
+      setLocation("");
     } catch (error: any) {
-      console.error("Form submission error:", error);
       setIsSubmitting(false);
-      setSubmissionError("Failed to submit the form. Please try again later.");
-      if (onError) {
-        onError(error.message || "An unexpected error occurred.");
-      }
+      setSubmissionError(error.message);
+      onError?.(error.message);
     }
   };
 

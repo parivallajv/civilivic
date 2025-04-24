@@ -73,7 +73,10 @@ export default function HowItWorks() {
   const step = steps.find((s) => s.id === activeStep)!;
 
   return (
-    <section className="px-4 py-16 max-w-2xl mx-auto text-center">
+    <section
+      id="how-it-works"
+      className="px-4 py-25 max-w-2xl mx-auto text-center"
+    >
       <motion.h2
         className="text-2xl md:text-4xl font-bold mb-3 text-gray-800 drop-shadow-sm"
         initial={{ opacity: 0, y: -20 }}

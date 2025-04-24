@@ -14,10 +14,10 @@ const packagePricing: Record<string, string> = {
 
 export default function PackageComparison() {
   return (
-    <div className="bg-[#fff8f6] py-10 px-4">
+    <div id="pricing" className="bg-[#fff8f6] py-25 px-4">
       <div className="text-center mb-10">
         <h2 className="text-3xl font-bold text-gray-900">
-          Home Construction Packages In Bengaluru
+          Home Construction Packages In Chennai
         </h2>
         <p className="text-gray-600 mt-2 text-sm">
           Find the best Luxury Packages.* <br />
