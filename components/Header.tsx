@@ -2,12 +2,6 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem,
-} from "@/components/ui/dropdown-menu";
 import { PhoneIcon, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -29,23 +23,12 @@ const Header: React.FC<HeaderProps> = ({ showForm, setShowForm }) => {
       <div className="flex items-center gap-6">
         <Link href="#">
           <div className="text-xl font-bold flex flex-col leading-none">
-            <span>civilivic</span>
+            <span>Livic</span>
             <span className="text-xs text-orange-500 tracking-widest">
               HOME CONSTRUCTION
             </span>
           </div>
         </Link>
-
-        <DropdownMenu>
-          <DropdownMenuTrigger className="text-orange-500 font-semibold flex items-center gap-1 focus:outline-none">
-            CHENNAI <ChevronDown className="w-4 h-4" />
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuItem>Chennai</DropdownMenuItem>
-            <DropdownMenuItem>Bangalore</DropdownMenuItem>
-            <DropdownMenuItem>Hyderabad</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
       </div>
 
       <div className="hidden md:flex items-center gap-6 text-sm font-medium">

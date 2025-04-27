@@ -28,7 +28,7 @@ export default function PackageComparison() {
         {Object.entries(packageData).map(([pkgName, sections]) => (
           <div
             key={pkgName}
-            className="bg-white rounded-lg shadow-sm border border-gray-200 "
+            className="bg-white rounded-lg shadow-sm border border-gray-200 h-fit"
           >
             <div className="bg-orange-600 text-white font-bold text-center p-4 rounded-t-lg">
               <h3 className="text-lg">{pkgName}</h3>

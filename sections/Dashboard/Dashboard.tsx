@@ -2,7 +2,6 @@ import Slider, { Slide } from "@/components/Slider";
 import Exterior from "./images/exterior.jpg";
 import Interior from "./images/interior-1.jpg";
 import Dining from "./images/dining.jpg";
-import TalkToExpertPopup from "./TalkToExpertPopup";
 
 function Dashboard() {
   const mySlides: Slide[] = [

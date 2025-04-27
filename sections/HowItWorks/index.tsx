@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import { ArrowLeft, ArrowRight } from "lucide-react"; // Importing icons
 import Request from "./images/request.jpg";
 import Expert from "./images/professionals.jpg";
 import Booking from "./images/booking.jpg";
@@ -72,10 +73,18 @@ export default function HowItWorks() {
   const [activeStep, setActiveStep] = useState(1);
   const step = steps.find((s) => s.id === activeStep)!;
 
+  const handlePrevious = () => {
+    setActiveStep((prev) => (prev === 1 ? steps.length : prev - 1));
+  };
+
+  const handleNext = () => {
+    setActiveStep((prev) => (prev === steps.length ? 1 : prev + 1));
+  };
+
   return (
     <section
       id="how-it-works"
-      className="px-4 py-25 max-w-2xl mx-auto text-center"
+      className="px-4 py-24 max-w-2xl mx-auto text-center relative"
     >
       <motion.h2
         className="text-2xl md:text-4xl font-bold mb-3 text-gray-800 drop-shadow-sm"
@@ -93,6 +102,25 @@ export default function HowItWorks() {
       >
         Plan – Build – Track – Settle in
       </motion.p>
+
+      {/* Arrow buttons */}
+      <div className="absolute left-0 top-1/2 transform -translate-y-1/2">
+        <button
+          onClick={handlePrevious}
+          className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition"
+        >
+          <ArrowLeft size={24} />
+        </button>
+      </div>
+
+      <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
+        <button
+          onClick={handleNext}
+          className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition"
+        >
+          <ArrowRight size={24} />
+        </button>
+      </div>
 
       <div className="flex justify-center gap-4 mb-10 flex-wrap">
         {steps.map(({ id }) => (
@@ -129,7 +157,7 @@ export default function HowItWorks() {
                 src={step.image}
                 alt={step.title}
                 width={300}
-                height={200}
+                height={300}
                 className="rounded-lg object-cover shadow-md mb-4"
               />
             </motion.div>
